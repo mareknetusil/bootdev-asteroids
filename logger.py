@@ -1,7 +1,7 @@
+import datetime as dt
 import inspect
 import json
 import math
-import datetime as dt
 import typing as tp
 
 
@@ -18,7 +18,7 @@ class GroupInfo(tp.TypedDict):
     sprites: list[SpriteInfo]
 
 
-__all__ = ["log_state", "log_event"]
+__all__ = ["log_event", "log_state"]
 
 
 _FPS = 60
@@ -93,7 +93,7 @@ def log_state() -> None:
             game_state[key] = group_info
 
         if len(game_state) == 0 and hasattr(value, "position"):
-            sprite_info = {"type": sprite.__class__.__name__}
+            sprite_info = {"type": value.__class__.__name__}
 
             sprite_info["pos"] = [
                     round(value.position.x, 2),
