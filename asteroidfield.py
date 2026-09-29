@@ -1,4 +1,3 @@
-import collections as cl
 import random
 import typing as tp
 
@@ -44,7 +43,8 @@ class AsteroidField(pygame.sprite.Sprite):
     ]
 
     def __init__(self) -> None:
-        pygame.sprite.Sprite.__init__(self, self.containers)  # why not super().__init__?
+        # pygame.sprite.Sprite.__init__(self, self.containers)  # why not super().__init__?
+        super().__init__(self.containers)
         self.spawn_timer = 0.0
 
     def spawn(
